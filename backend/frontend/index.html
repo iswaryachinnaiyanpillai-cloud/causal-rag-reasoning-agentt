@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Causal RAG Agent | TechNova Solutions</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                CR
+            </div>
+
+            <div>
+                <h1>Causal RAG</h1>
+                <p>TechNova Solutions</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="#top" class="nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#evidenceCard" class="nav-item">
+                <span class="nav-icon">◈</span>
+                <span>Evidence</span>
+            </a>
+
+            <a href="#causalChainCard" class="nav-item">
+                <span class="nav-icon">→</span>
+                <span>Causal Chain</span>
+            </a>
+
+            <a href="#verificationCard" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Verification</span>
+            </a>
+
+            <a href="#evaluationCard" class="nav-item">
+                <span class="nav-icon">★</span>
+                <span>Evaluation</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="backend-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>Backend Online</strong>
+                    <small>FastAPI connected</small>
+                </div>
+
+            </div>
+
+
+            <div class="version">
+                Causal RAG Agent
+                <span>Version 1.0</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content" id="top">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    CAUSAL INTELLIGENCE PLATFORM
+                </p>
+
+                <h2>
+                    Analysis Dashboard
+                </h2>
+
+                <p class="subtitle">
+                    Evidence-based reasoning for TechNova Solutions
+                </p>
+
+            </div>
+
+
+            <div class="ready-badge">
+
+                <span class="ready-dot"></span>
+
+                <div>
+                    <strong>System Ready</strong>
+                    <small>Evidence-Based Reasoning</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-label">
+                CAUSAL RAG AGENT
+            </div>
+
+            <h1>
+                Ask a question.
+                <span>Discover the cause.</span>
+            </h1>
+
+            <p class="hero-description">
+                Analyze factual and causal questions using retrieved
+                evidence, causal chains, verification and confidence
+                evaluation.
+            </p>
+
+
+            <!-- QUESTION CARD -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    01
+                </div>
+
+                <div class="question-content">
+
+                    <h3>
+                        Ask a Question
+                    </h3>
+
+                    <p>
+                        Enter a question about TechNova Solutions.
+                    </p>
+
+
+                    <div class="input-row">
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">?</span>
+
+                            <input
+                                type="text"
+                                id="questionInput"
+                                placeholder="Why did system latency increase?"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <button
+                            id="askButton"
+                            class="analyze-button"
+                            type="button"
+                        >
+                            <span>Analyze</span>
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="examples">
+
+                        <span>Try:</span>
+
+                        <button
+                            class="example-question"
+                            data-question="Why did system latency increase?"
+                            type="button"
+                        >
+                            Why did system latency increase?
+                        </button>
+
+                        <button
+                            class="example-question"
+                            data-question="What services does TechNova Solutions provide?"
+                            type="button"
+                        >
+                            What services does TechNova provide?
+                        </button>
+
+                        <button
+                            class="example-question"
+                            data-question="What is the relationship between database traffic and system latency?"
+                            type="button"
+                        >
+                            Database traffic &amp; latency?
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <div id="loading" class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <div>
+                <strong>Analyzing evidence...</strong>
+                <span>Building causal intelligence</span>
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        <div
+            id="errorMessage"
+            class="error-message hidden"
+            role="alert"
+        ></div>
+
+
+        <!-- =================================================
+             RESULTS
+        ================================================== -->
+
+        <section
+            id="resultSection"
+            class="results hidden"
+        >
+
+            <!-- RESULT HEADER -->
+
+            <div class="analysis-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ANALYSIS COMPLETE
+                    </p>
+
+                    <h2>
+                        Analysis Result
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="queryType"
+                    class="query-badge"
+                >
+                    CAUSAL
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ANSWER
+            ================================================== -->
+
+            <div class="card answer-card">
+
+                <div class="card-icon blue">
+                    ✦
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Answer</h3>
+                            <p>Evidence-grounded analysis</p>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="answer"
+                        class="answer-text"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CAUSAL INFORMATION
+            ================================================== -->
+
+            <div
+                id="causalInformationCard"
+                class="card"
+            >
+
+                <div class="card-icon purple">
+                    ◎
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Causal Information</h3>
+                            <p>Primary cause and observed effect</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="cause-effect-grid">
+
+                        <div class="cause-box">
+
+                            <span class="box-label">
+                                PRIMARY CAUSE
+                            </span>
+
+                            <strong id="cause">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="effect-box">
+
+                            <span class="box-label">
+                                EFFECT
+                            </span>
+
+                            <strong id="effect">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="information-section">
+
+                        <h4>
+                            INTERMEDIATE FACTORS
+                        </h4>
+
+                        <div
+                            id="intermediateFactors"
+                            class="factor-list"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="information-section">
+
+                        <h4>
+                            ALTERNATIVE CAUSES
+                        </h4>
+
+                        <div
+                            id="alternativeCauses"
+                            class="factor-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CAUSAL CHAIN
+            ================================================== -->
+
+            <div
+                id="causalChainCard"
+                class="card"
+            >
+
+                <div class="card-icon orange">
+                    →
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Causal Chain</h3>
+                            <p>Step-by-step cause-and-effect pathway</p>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="causalChain"
+                        class="causal-chain-container"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CAUSAL GRAPH
+            ================================================== -->
+
+            <div
+                id="causalGraphCard"
+                class="card"
+            >
+
+                <div class="card-icon green">
+                    ◇
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Causal Graph</h3>
+                            <p>Visual representation of the causal pathway</p>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="causalGraph"
+                        class="graph-container"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EVIDENCE
+            ================================================== -->
+
+            <div
+                id="evidenceCard"
+                class="card"
+            >
+
+                <div class="card-icon cyan">
+                    ◈
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Retrieved Evidence</h3>
+                            <p>Knowledge-base evidence used by the analyzer</p>
+                        </div>
+
+                    </div>
+
+
+                    <pre
+                        id="retrievedEvidence"
+                        class="evidence"
+                    ></pre>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EVIDENCE EVALUATION
+            ================================================== -->
+
+            <div
+                id="evidenceEvaluationCard"
+                class="card"
+            >
+
+                <div class="card-icon teal">
+                    ◉
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Evidence Evaluation</h3>
+                            <p>Assessment of supporting evidence</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metrics-grid">
+
+                        <div class="metric-card">
+
+                            <span>
+                                STRENGTH
+                            </span>
+
+                            <strong id="evidenceStrength">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <span>
+                                CONFIDENCE
+                            </span>
+
+                            <strong id="evidenceConfidence">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <span>
+                                CLAIMS
+                            </span>
+
+                            <strong id="claimCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <span>
+                                CAUSAL CLAIMS
+                            </span>
+
+                            <strong id="causalClaims">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VERIFICATION
+            ================================================== -->
+
+            <div
+                id="verificationCard"
+                class="card"
+            >
+
+                <div class="card-icon success">
+                    ✓
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Causal Verification</h3>
+                            <p>Verification of the causal conclusion</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="verification-grid">
+
+                        <div class="verification-item">
+
+                            <span>
+                                STATUS
+                            </span>
+
+                            <strong id="verificationStatus">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="verification-item">
+
+                            <span>
+                                CONFIDENCE
+                            </span>
+
+                            <strong id="verificationConfidence">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="verification-item">
+
+                            <span>
+                                VERIFIED CLAIMS
+                            </span>
+
+                            <strong id="verifiedClaims">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FINAL EVALUATION
+            ================================================== -->
+
+            <div
+                id="evaluationCard"
+                class="card evaluation-card"
+            >
+
+                <div class="card-icon gold">
+                    ★
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Overall Evaluation</h3>
+                            <p>Final causal analysis assessment</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-container">
+
+                        <div class="score-circle">
+
+                            <span id="overallScore">
+                                0
+                            </span>
+
+                            <small>/100</small>
+
+                        </div>
+
+
+                        <div class="score-text">
+                            Overall Score
+                        </div>
+
+                    </div>
+
+
+                    <div class="evaluation-grid">
+
+                        <div>
+
+                            <span>
+                                Evidence Quality
+                            </span>
+
+                            <strong id="evaluationEvidence">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Chain Quality
+                            </span>
+
+                            <strong id="evaluationChain">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Verification
+                            </span>
+
+                            <strong id="evaluationVerification">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Confidence
+                            </span>
+
+                            <strong id="evaluationConfidence">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Completeness
+                            </span>
+
+                            <strong id="analysisCompleteness">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-box">
+
+                        <span class="summary-icon">
+                            ✓
+                        </span>
+
+                        <p id="evaluationSummary">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <strong>
+                Causal RAG Agent
+            </strong>
+
+            <span>•</span>
+
+            <span>
+                TechNova Solutions
+            </span>
+
+            <small>
+                Evidence-Based Causal Intelligence
+            </small>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

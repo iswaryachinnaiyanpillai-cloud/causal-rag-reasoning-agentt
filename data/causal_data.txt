@@ -1,0 +1,453 @@
+(venv312) PS C:\Users\ISWARYA C.P\casual-rag-agents> python -m backend.standard_rag
+
+======================================================================
+STANDARD RAG BASELINE TEST
+======================================================================
+
+----------------------------------------------------------------------
+QUESTION:
+What services does TechNova provide?
+
+ANSWER:
+Based on the retrieved information from the knowledge base:
+
+TechNova Solutions
+About:
+TechNova Solutions is a technology company that provides innovative digital solutions for businesses.
+Services:
+Software Development
+Cloud Computing
+Artificial Intelligence
+Data Analytics
+Web Development
+Mission:
+Our mission is to provide innovative and reliable technology solutions that help businesses improve efficiency and achieve their goals.
+Contact:
+Email: contact@technovasolutions.com
+Phone: +91-9876543210
+Website: www.technovasolutions.com
+
+RETRIEVED EVIDENCE:
+TechNova Solutions
+About:
+TechNova Solutions is a technology company that provides innovative digital solutions for businesses.
+Services:
+Software Development
+Cloud Computing
+Artificial Intelligence
+Data Analytics
+Web Development
+Mission:
+Our mission is to provide innovative and reliable technology solutions that help businesses improve efficiency and achieve their goals.
+Contact:
+Email: contact@technovasolutions.com
+Phone: +91-9876543210
+Website: www.technovasolutions.com
+
+----------------------------------------------------------------------
+QUESTION:
+Why did system latency increase?
+
+ANSWER:
+Based on the retrieved information from the knowledge base:
+
+SCENARIO 2: MULTI-STEP CAUSE
+
+Event:
+System latency increased and eventually caused request timeouts.
+
+Observation:
+Average system latency increased from 100 ms to 180 ms.
+
+Cause:
+Increased database traffic.
+
+Evidence:
+User requests increased significantly and database query volume increased by approximately 40%.
+
+Intermediate Factors:
+Higher database load.
+Increased processing time.
+
+Effect:
+Higher system latency followed by system timeout.
+
+Causal Chain:
+Increased user requests -> Higher database queries -> Higher database load -> Increased processing time -> Higher system latency -> System timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources could also contribute to latency.
+Network congestion is another possible factor, but the available evidence is weaker.
+
+RETRIEVED EVIDENCE:
+SCENARIO 2: MULTI-STEP CAUSE
+
+Event:
+System latency increased and eventually caused request timeouts.
+
+Observation:
+Average system latency increased from 100 ms to 180 ms.
+
+Cause:
+Increased database traffic.
+
+Evidence:
+User requests increased significantly and database query volume increased by approximately 40%.
+
+Intermediate Factors:
+Higher database load.
+Increased processing time.
+
+Effect:
+Higher system latency followed by system timeout.
+
+Causal Chain:
+Increased user requests -> Higher database queries -> Higher database load -> Increased processing time -> Higher system latency -> System timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources could also contribute to latency.
+Network congestion is another possible factor, but the available evidence is weaker.
+
+----------------------------------------------------------------------
+QUESTION:
+What caused the decrease in model accuracy?
+
+ANSWER:
+Based on the retrieved information from the knowledge base:
+
+SCENARIO 5: MODEL ACCURACY DECREASE
+
+Event:
+Machine learning model accuracy decreased.
+
+Observation:
+Model accuracy decreased from 94% to 86%.
+
+Cause:
+Increased noise in the training data.
+
+Evidence:
+The amount of noisy training data increased while the overall training-data size remained unchanged.
+
+Intermediate Factors:
+Harder training examples.
+Lower model performance.
+
+Effect:
+Accuracy decreased.
+
+Causal Chain:
+Increased noise in the training data -> Harder training examples -> Lower model performance -> Accuracy decreased.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced training-data size is less supported because training-data size remained unchanged.
+
+Causal Status:
+CAUSALITY_SUPPORTED
+
+RETRIEVED EVIDENCE:
+SCENARIO 5: MODEL ACCURACY DECREASE
+
+Event:
+Machine learning model accuracy decreased.
+
+Observation:
+Model accuracy decreased from 94% to 86%.
+
+Cause:
+Increased noise in the training data.
+
+Evidence:
+The amount of noisy training data increased while the overall training-data size remained unchanged.
+
+Intermediate Factors:
+Harder training examples.
+Lower model performance.
+
+Effect:
+Accuracy decreased.
+
+Causal Chain:
+Increased noise in the training data -> Harder training examples -> Lower model performance -> Accuracy decreased.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced training-data size is less supported because training-data size remained unchanged.
+
+Causal Status:
+CAUSALITY_SUPPORTED
+
+----------------------------------------------------------------------
+QUESTION:
+What caused the slower API requests?
+
+ANSWER:
+Based on the retrieved information from the knowledge base:
+
+SCENARIO 7: NETWORK CONGESTION
+
+Event:
+API requests became slower.
+
+Observation:
+Average network response time increased during a period of network congestion.
+
+Cause:
+Network congestion.
+
+Evidence:
+Network monitoring showed increased packet delay and bandwidth utilization.
+
+Intermediate Factors:
+Higher network traffic.
+Increased packet delay.
+
+Effect:
+Slower API requests.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Server processing delay was also considered but showed weaker evidence.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources could also contribute to latency.
+Network congestion is another possible factor, but the available evidence is weaker.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+SCENARIO 2: MULTI-STEP CAUSE
+
+Event:
+System latency increased and eventually caused request timeouts.
+
+Observation:
+Average system latency increased from 100 ms to 180 ms.
+
+Cause:
+Increased database traffic.
+
+Evidence:
+User requests increased significantly and database query volume increased by approximately 40%.
+
+Intermediate Factors:
+Higher database load.
+Increased processing time.
+
+Effect:
+Higher system latency followed by system timeout.
+
+Causal Chain:
+Increased user requests -> Higher database queries -> Higher database load -> Increased processing time -> Higher system latency -> System timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+SCENARIO 6: SERVER RESOURCE ISSUE
+
+Event:
+Application response time increased.
+
+Observation:
+Average response time increased from 120 ms to 200 ms.
+
+Cause:
+Reduced server resources.
+
+Evidence:
+Available CPU and memory resources decreased during the period of increased response time.
+
+Intermediate Factors:
+Higher CPU utilization.
+Higher memory pressure.
+
+Effect:
+Higher application response time.
+
+Causal Chain:
+Reduced server resources -> Higher CPU utilization -> Higher processing time -> Higher application response time.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Database traffic remained approximately stable, making it a less-supported explanation.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+oad could also contribute to higher latency.
+Network congestion could also contribute to higher latency.
+
+Conclusion:
+The relationship between database traffic and system latency is correlational. Direct causation is not confirmed.
+
+RETRIEVED EVIDENCE:
+SCENARIO 7: NETWORK CONGESTION
+
+Event:
+API requests became slower.
+
+Observation:
+Average network response time increased during a period of network congestion.
+
+Cause:
+Network congestion.
+
+Evidence:
+Network monitoring showed increased packet delay and bandwidth utilization.
+
+Intermediate Factors:
+Higher network traffic.
+Increased packet delay.
+
+Effect:
+Slower API requests.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Server processing delay was also considered but showed weaker evidence.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources could also contribute to latency.
+Network congestion is another possible factor, but the available evidence is weaker.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+SCENARIO 2: MULTI-STEP CAUSE
+
+Event:
+System latency increased and eventually caused request timeouts.
+
+Observation:
+Average system latency increased from 100 ms to 180 ms.
+
+Cause:
+Increased database traffic.
+
+Evidence:
+User requests increased significantly and database query volume increased by approximately 40%.
+
+Intermediate Factors:
+Higher database load.
+Increased processing time.
+
+Effect:
+Higher system latency followed by system timeout.
+
+Causal Chain:
+Increased user requests -> Higher database queries -> Higher database load -> Increased processing time -> Higher system latency -> System timeout.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Reduced server resources
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+SCENARIO 6: SERVER RESOURCE ISSUE
+
+Event:
+Application response time increased.
+
+Observation:
+Average response time increased from 120 ms to 200 ms.
+
+Cause:
+Reduced server resources.
+
+Evidence:
+Available CPU and memory resources decreased during the period of increased response time.
+
+Intermediate Factors:
+Higher CPU utilization.
+Higher memory pressure.
+
+Effect:
+Higher application response time.
+
+Causal Chain:
+Reduced server resources -> Higher CPU utilization -> Higher processing time -> Higher application response time.
+
+Evidence Strength:
+STRONG
+
+Confidence:
+HIGH
+
+Alternative Causes:
+Database traffic remained approximately stable, making it a less-supported explanation.
+
+--- RETRIEVED KNOWLEDGE CHUNK ---
+
+oad could also contribute to higher latency.
+Network congestion could also contribute to higher latency.
+
+Conclusion:
+The relationship between database traffic and system latency is correlational. Direct causation is not confirmed.

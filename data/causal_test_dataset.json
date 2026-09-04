@@ -1,0 +1,357 @@
+{
+  "dataset_name": "TechNova Solutions Causal RAG Evaluation Dataset",
+  "version": "2.0",
+  "description": "Evaluation dataset aligned with the current TechNova Solutions causal knowledge base.",
+  "company": "TechNova Solutions",
+  "total_scenarios": 11,
+  "scenarios": [
+    {
+      "id": 1,
+      "scenario_type": "direct_cause",
+      "category": "direct_cause",
+      "question": "What caused the system failure?",
+      "expected_cause": "Database overload",
+      "expected_effect": "Production system failure",
+      "expected_chain": [
+        "Database overload",
+        "Production system failure"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [
+        "Temporary network interruption"
+      ],
+      "event": "Production system failure",
+      "cause": "Database overload",
+      "effect": "Production system failure",
+      "evidence": "Database overload directly contributed to the production system failure.",
+      "causal_evidence": "Evidence strongly supports Database overload as the cause of the production system failure.",
+      "causal_chain": [
+        "Database overload",
+        "Production system failure"
+      ],
+      "alternative_causes": [
+        "Temporary network interruption"
+      ],
+      "conclusion": "Database overload is the primary cause of the production system failure."
+    },
+    {
+      "id": 2,
+      "scenario_type": "multi_step_cause",
+      "category": "multi_step_cause",
+      "question": "Why did system latency increase?",
+      "expected_cause": "Increased database traffic",
+      "expected_effect": "Higher system latency",
+      "expected_chain": [
+        "Increased database traffic",
+        "Higher database load",
+        "Increased processing time",
+        "Higher system latency"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [
+        "Reduced server resources",
+        "Network congestion"
+      ],
+      "event": "System latency increase",
+      "cause": "Increased database traffic",
+      "effect": "Higher system latency",
+      "intermediate_factors": [
+        "Higher database load",
+        "Increased processing time"
+      ],
+      "evidence": "Increased database traffic increased database load, which increased processing time and resulted in higher system latency.",
+      "causal_evidence": "The evidence supports a multi-step causal relationship from increased database traffic to higher system latency.",
+      "causal_chain": [
+        "Increased database traffic",
+        "Higher database load",
+        "Increased processing time",
+        "Higher system latency"
+      ],
+      "alternative_causes": [
+        "Reduced server resources",
+        "Network congestion"
+      ],
+      "conclusion": "Increased database traffic is the primary cause of the increase in system latency."
+    },
+    {
+      "id": 3,
+      "scenario_type": "correlation_only",
+      "category": "correlation_only",
+      "question": "Is increased database traffic responsible for higher system latency?",
+      "expected_cause": "Increased database traffic",
+      "expected_effect": "Higher system latency",
+      "expected_chain": [],
+      "expected_causal_status": "CORRELATION_ONLY",
+      "expected_evidence_strength": "MODERATE",
+      "expected_confidence": "MEDIUM",
+      "expected_alternative_causes": [
+        "Server load",
+        "Network congestion"
+      ],
+      "event": "Database traffic and system latency increased during the same period.",
+      "observation": "Increased database traffic and higher system latency were observed together.",
+      "cause": "Increased database traffic",
+      "effect": "Higher system latency",
+      "evidence": "The two variables increased during the same period, but there is no direct causal evidence.",
+      "causal_evidence": "No direct evidence confirms that increased database traffic caused the higher system latency.",
+      "alternative_causes": [
+        "Server load",
+        "Network congestion"
+      ],
+      "conclusion": "The relationship is correlational only; direct causality is not confirmed."
+    },
+    {
+      "id": 4,
+      "scenario_type": "multiple_possible_causes",
+      "category": "multiple_possible_causes",
+      "question": "What factor most likely caused the increase in response time?",
+      "expected_cause": "Increased database traffic",
+      "expected_effect": "Reduced application performance",
+      "expected_chain": [
+        "Increased database traffic",
+        "Reduced application performance"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [
+        "Reduced server resources",
+        "Network congestion"
+      ],
+      "event": "Application performance decreased",
+      "observation": "Application response time increased by approximately 30 percent.",
+      "cause": "Increased database traffic",
+      "effect": "Reduced application performance",
+      "intermediate_factors": [
+        "Higher database load",
+        "Longer query execution"
+      ],
+      "evidence": "Increased database traffic has the strongest supporting evidence among the possible causes.",
+      "causal_evidence": "Database traffic provides strong evidence, while reduced server resources provide moderate evidence and network congestion provides weak evidence.",
+      "alternative_causes": [
+        "Reduced server resources",
+        "Network congestion"
+      ],
+      "conclusion": "Increased database traffic is the strongest-supported primary cause."
+    },
+    {
+      "id": 5,
+      "scenario_type": "model_accuracy",
+      "category": "model_accuracy",
+      "question": "Why did the model accuracy decrease?",
+      "expected_cause": "Increased noise in the training data",
+      "expected_effect": "Accuracy decreased",
+      "expected_chain": [
+        "Increased noise in the training data",
+        "Harder training examples",
+        "Lower model performance",
+        "Accuracy decreased"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [],
+      "event": "Model accuracy decreased",
+      "cause": "Increased noise in the training data",
+      "effect": "Accuracy decreased",
+      "intermediate_factors": [
+        "Harder training examples",
+        "Lower model performance"
+      ],
+      "evidence": "Increased noise in the training data resulted in harder training examples and lower model performance.",
+      "causal_evidence": "The evidence supports the causal chain from increased training-data noise to accuracy decrease.",
+      "causal_chain": [
+        "Increased noise in the training data",
+        "Harder training examples",
+        "Lower model performance",
+        "Accuracy decreased"
+      ],
+      "alternative_causes": [],
+      "conclusion": "Increased noise in the training data caused the decrease in model accuracy."
+    },
+    {
+      "id": 6,
+      "scenario_type": "server_resource_issue",
+      "category": "server_resource_issue",
+      "question": "Why did server performance decrease?",
+      "expected_cause": "Reduced server resources",
+      "expected_effect": "Increased response time",
+      "expected_chain": [
+        "Reduced server resources",
+        "Higher CPU utilization",
+        "Increased processing time",
+        "Increased response time"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [],
+      "event": "Server performance decreased",
+      "cause": "Reduced server resources",
+      "effect": "Increased response time",
+      "intermediate_factors": [
+        "Higher CPU utilization",
+        "Increased processing time"
+      ],
+      "evidence": "Reduced server resources increased CPU utilization and processing time, resulting in increased response time.",
+      "causal_evidence": "Evidence strongly supports reduced server resources as the cause.",
+      "causal_chain": [
+        "Reduced server resources",
+        "Higher CPU utilization",
+        "Increased processing time",
+        "Increased response time"
+      ],
+      "alternative_causes": [],
+      "conclusion": "Reduced server resources caused the decrease in server performance."
+    },
+    {
+      "id": 7,
+      "scenario_type": "network_congestion",
+      "category": "network_congestion",
+      "question": "Why did network-related API requests become slower?",
+      "expected_cause": "Network congestion",
+      "expected_effect": "Slower API requests",
+      "expected_chain": [
+        "Network congestion",
+        "Increased network traffic",
+        "Packet delay",
+        "Slower API requests"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [],
+      "event": "Network-related API requests became slower",
+      "cause": "Network congestion",
+      "effect": "Slower API requests",
+      "intermediate_factors": [
+        "Increased network traffic",
+        "Packet delay"
+      ],
+      "evidence": "Network congestion increased network traffic and packet delay, making API requests slower.",
+      "causal_evidence": "Evidence strongly supports network congestion as the cause of slower API requests.",
+      "causal_chain": [
+        "Network congestion",
+        "Increased network traffic",
+        "Packet delay",
+        "Slower API requests"
+      ],
+      "alternative_causes": [],
+      "conclusion": "Network congestion caused the slower API requests."
+    },
+    {
+      "id": 8,
+      "scenario_type": "insufficient_evidence",
+      "category": "insufficient_evidence",
+      "question": "Why did employee productivity decrease?",
+      "expected_cause": "Unknown",
+      "expected_effect": "Lower employee productivity",
+      "expected_chain": [],
+      "expected_causal_status": "INSUFFICIENT_EVIDENCE",
+      "expected_evidence_strength": "INSUFFICIENT",
+      "expected_confidence": "LOW",
+      "expected_alternative_causes": [],
+      "event": "Employee productivity decreased",
+      "observation": "Employee productivity was observed to decrease.",
+      "cause": "Unknown",
+      "effect": "Lower employee productivity",
+      "evidence": "No reliable evidence identifies a specific cause for the decrease in employee productivity.",
+      "causal_evidence": "There is insufficient evidence to establish a causal relationship.",
+      "alternative_causes": [],
+      "conclusion": "The available evidence is insufficient to determine the cause."
+    },
+    {
+      "id": 9,
+      "scenario_type": "database_performance",
+      "category": "database_performance",
+      "question": "Why did database query execution become longer?",
+      "expected_cause": "Higher database load",
+      "expected_effect": "Longer query execution",
+      "expected_chain": [
+        "Higher database load",
+        "Longer query execution"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [],
+      "event": "Database query execution became longer",
+      "cause": "Higher database load",
+      "effect": "Longer query execution",
+      "evidence": "Higher database load resulted in longer query execution.",
+      "causal_evidence": "Evidence strongly supports higher database load as the cause.",
+      "causal_chain": [
+        "Higher database load",
+        "Longer query execution"
+      ],
+      "alternative_causes": [],
+      "conclusion": "Higher database load caused longer query execution."
+    },
+    {
+      "id": 10,
+      "scenario_type": "cache_failure",
+      "category": "cache_failure",
+      "question": "Why did the cache failure increase response time?",
+      "expected_cause": "Cache failure",
+      "expected_effect": "Higher response time",
+      "expected_chain": [
+        "Cache failure",
+        "More database requests",
+        "Higher database load",
+        "Higher response time"
+      ],
+      "expected_causal_status": "CAUSALITY_SUPPORTED",
+      "expected_evidence_strength": "STRONG",
+      "expected_confidence": "HIGH",
+      "expected_alternative_causes": [],
+      "event": "Response time increased after a cache failure",
+      "cause": "Cache failure",
+      "effect": "Higher response time",
+      "intermediate_factors": [
+        "More database requests",
+        "Higher database load"
+      ],
+      "evidence": "Cache failure caused more database requests, which increased database load and response time.",
+      "causal_evidence": "The evidence supports the complete causal chain.",
+      "causal_chain": [
+        "Cache failure",
+        "More database requests",
+        "Higher database load",
+        "Higher response time"
+      ],
+      "alternative_causes": [],
+      "conclusion": "Cache failure caused the increase in response time."
+    },
+    {
+      "id": 11,
+      "scenario_type": "correlation_only",
+      "category": "correlation_only",
+      "question": "Did increased database traffic cause higher system latency?",
+      "expected_cause": "Increased database traffic",
+      "expected_effect": "Higher system latency",
+      "expected_chain": [],
+      "expected_causal_status": "CORRELATION_ONLY",
+      "expected_evidence_strength": "MODERATE",
+      "expected_confidence": "MEDIUM",
+      "expected_alternative_causes": [
+        "Server load",
+        "Network congestion"
+      ],
+      "event": "Database traffic and latency increased during the same period.",
+      "observation": "Database traffic and system latency increased together.",
+      "cause": "Increased database traffic",
+      "effect": "Higher system latency",
+      "evidence": "Database traffic and latency increased during the same period, but no direct causal evidence confirms that database traffic caused the latency.",
+      "causal_evidence": "The available evidence supports correlation but not direct causation.",
+      "alternative_causes": [
+        "Server load",
+        "Network congestion"
+      ],
+      "conclusion": "The relationship is correlational only and direct causality is not confirmed."
+    }
+  ]
+}
